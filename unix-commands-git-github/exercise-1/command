@@ -1,0 +1,10 @@
+mkdir git-practice
+cd git-practice
+git init
+echo "# Git Practice Repo" > README.md
+git add README.md
+git commit -m "Add README file"
+echo "Learning basic Git workflow" >> README.md
+git add README.md
+git commit -m "Update README with description"
+git log

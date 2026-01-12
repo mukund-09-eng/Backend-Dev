@@ -1,0 +1,16 @@
+git checkout -b branch-one
+git checkout main
+git checkout -b branch-two
+git checkout branch-one
+echo "Line from branch one" > conflict.txt
+git add conflict.txt
+git commit -m "Edit conflict file from branch one"
+git checkout branch-two
+echo "Line from branch two" > conflict.txt
+git add conflict.txt
+git commit -m "Edit conflict file from branch two"
+git checkout main
+git merge branch-one
+git merge branch-two
+git add conflict.txt
+git commit -m "Resolve merge conflict"
