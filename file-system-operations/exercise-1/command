@@ -1,0 +1,52 @@
+const fs = require("fs");
+const path = require("path");
+
+const [,, command, ...args] = process.argv;
+
+switch (command) {
+  case "read":
+    fs.readFile(args[0], "utf8", (err, data) => {
+      if (err) return console.log("Error:", err.message);
+      console.log(data);
+    });
+    break;
+
+  case "write":
+    fs.writeFile(args[0], args[1], (err) => {
+      if (err) return console.log("Error:", err.message);
+      console.log("File written successfully");
+    });
+    break;
+
+  case "copy":
+    fs.copyFile(args[0], args[1], (err) => {
+      if (err) return console.log("Error:", err.message);
+      console.log("File copied");
+    });
+    break;
+
+  case "delete":
+    fs.unlink(args[0], (err) => {
+      if (err) return console.log("Error:", err.message);
+      console.log("File deleted");
+    });
+    break;
+
+  case "list":
+    fs.readdir(args[0], (err, files) => {
+      if (err) return console.log("Error:", err.message);
+      console.log("Files:");
+      files.forEach(f => console.log(f));
+    });
+    break;
+
+  default:
+    console.log(`
+Commands:
+node fileManager.js read file.txt
+node fileManager.js write file.txt "Hello"
+node fileManager.js copy a.txt b.txt
+node fileManager.js delete file.txt
+node fileManager.js list folderPath
+`);
+}
