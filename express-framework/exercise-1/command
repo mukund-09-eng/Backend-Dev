@@ -1,0 +1,18 @@
+const express = require("express");
+const app = express();
+
+const users = [
+  { name: "Mukund" },
+  { name: "Rahul" },
+  { name: "Rohit" }
+];
+
+app.get("/users", (req, res) => {
+  const name = req.query.name;
+  const filtered = name
+    ? users.filter(u => u.name.toLowerCase().includes(name.toLowerCase()))
+    : users;
+  res.json(filtered);
+});
+
+app.listen(3000, () => console.log("Filter API running"));
