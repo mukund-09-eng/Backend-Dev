@@ -1,0 +1,29 @@
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+// Validation Middleware
+function validateRegister(req, res, next) {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res.status(400).json({
+      error: "Username and password are required"
+    });
+  }
+
+  next(); // validation passed
+}
+
+// Route with middleware
+app.post("/register", validateRegister, (req, res) => {
+  res.json({
+    message: "User registered successfully",
+    data: req.body
+  });
+});
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
