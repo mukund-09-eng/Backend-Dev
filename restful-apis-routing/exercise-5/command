@@ -1,0 +1,25 @@
+const express = require("express");
+const app = express();
+
+const books = [
+  { id: 1, title: "JavaScript Basics" },
+  { id: 2, title: "Node.js Guide" },
+  { id: 3, title: "Learning Express" }
+];
+
+// Search endpoint
+app.get("/books/search", (req, res) => {
+  const { title } = req.query;
+
+  if (!title) {
+    return res.status(400).json({ error: "Title query is required" });
+  }
+
+  const result = books.filter(book =>
+    book.title.toLowerCase().includes(title.toLowerCase())
+  );
+
+  res.json(result);
+});
+
+app.listen(3004, () => console.log("Exercise 5 running on port 3004"));

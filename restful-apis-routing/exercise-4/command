@@ -1,0 +1,43 @@
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+let authors = [];
+let idCounter = 1;
+
+// CREATE
+app.post("/authors", (req, res) => {
+  const author = { id: idCounter++, ...req.body };
+  authors.push(author);
+  res.status(201).json(author);
+});
+
+// READ all
+app.get("/authors", (req, res) => {
+  res.json(authors);
+});
+
+// READ one
+app.get("/authors/:id", (req, res) => {
+  const author = authors.find(a => a.id == req.params.id);
+  if (!author) return res.status(404).json({ error: "Not found" });
+  res.json(author);
+});
+
+// UPDATE
+app.put("/authors/:id", (req, res) => {
+  const index = authors.findIndex(a => a.id == req.params.id);
+  if (index === -1) return res.status(404).json({ error: "Not found" });
+
+  authors[index] = { ...authors[index], ...req.body };
+  res.json(authors[index]);
+});
+
+// DELETE
+app.delete("/authors/:id", (req, res) => {
+  authors = authors.filter(a => a.id != req.params.id);
+  res.json({ message: "Deleted successfully" });
+});
+
+app.listen(3003, () => console.log("Exercise 4 running on port 3003"));

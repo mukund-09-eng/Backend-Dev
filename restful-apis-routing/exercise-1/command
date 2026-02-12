@@ -1,0 +1,27 @@
+const express = require("express");
+const app = express();
+
+const books = [
+  { id: 1, title: "Book A", author: "John", year: 2020 },
+  { id: 2, title: "Book B", author: "Alice", year: 2021 },
+  { id: 3, title: "Book C", author: "John", year: 2022 },
+];
+
+// GET all books with filtering
+app.get("/books", (req, res) => {
+  let result = books;
+
+  const { author, year } = req.query;
+
+  if (author) {
+    result = result.filter(b => b.author.toLowerCase() === author.toLowerCase());
+  }
+
+  if (year) {
+    result = result.filter(b => b.year == year);
+  }
+
+  res.json(result);
+});
+
+app.listen(3000, () => console.log("Exercise 1 running on port 3000"));

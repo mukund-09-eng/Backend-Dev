@@ -1,0 +1,26 @@
+const express = require("express");
+const app = express();
+
+const books = Array.from({ length: 50 }, (_, i) => ({
+  id: i + 1,
+  title: `Book ${i + 1}`
+}));
+
+app.get("/books", (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+
+  const start = (page - 1) * limit;
+  const end = start + limit;
+
+  const paginatedBooks = books.slice(start, end);
+
+  res.json({
+    page,
+    limit,
+    total: books.length,
+    data: paginatedBooks
+  });
+});
+
+app.listen(3002, () => console.log("Exercise 3 running on port 3002"));
