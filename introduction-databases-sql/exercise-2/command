@@ -1,0 +1,4 @@
+1. Stock Trading Platform → CP (Consistency + Partition Tolerance)
+2. Content Delivery Network → AP (Availability + Partition Tolerance)
+3. Airline Booking System → CP (Consistency + Partition Tolerance)
+4. Video Streaming Service → AP (Availability + Partition Tolerance)

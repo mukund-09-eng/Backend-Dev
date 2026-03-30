@@ -1,0 +1,5 @@
+1. Online Banking System → SQL (ACID, consistency, transactions)
+2. Social Media Platform → NoSQL (scalable, unstructured data)
+3. Real-time Chat Application → NoSQL (low latency, high throughput)
+4. Hospital Patient Records → SQL (structured, data integrity)
+5. IoT Sensor Data Collection → NoSQL (high volume, flexible schema)

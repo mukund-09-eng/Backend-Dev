@@ -1,0 +1,27 @@
+use libraryDB
+
+// Add new book
+db.books.insertOne({
+  title: "DSA Made Easy",
+  author: "Mukund",
+  available: true
+})
+
+// Find books by author
+db.books.find({ author: "Mukund" })
+
+// Update book availability
+db.books.updateOne(
+  { title: "DSA Made Easy" },
+  { $set: { available: false } }
+)
+
+// Track borrowed books
+db.borrowed.insertOne({
+  user: "Rahul",
+  book: "DSA Made Easy",
+  borrowDate: new Date()
+})
+
+// Find borrowed books by user
+db.borrowed.find({ user: "Rahul" })
