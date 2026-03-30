@@ -1,0 +1,25 @@
+use studentDB
+
+// Add new student
+db.students.insertOne({
+  name: "Mukund",
+  email: "mukund@gmail.com",
+  gpa: 3.5,
+  city: "Agra",
+  courses: ["DBMS", "OS", "DSA"]
+})
+
+// View all students
+db.students.find()
+
+// Find student by email
+db.students.findOne({ email: "mukund@gmail.com" })
+
+// Update student GPA
+db.students.updateOne(
+  { email: "mukund@gmail.com" },
+  { $set: { gpa: 3.8 } }
+)
+
+// Delete student
+db.students.deleteOne({ email: "mukund@gmail.com" })

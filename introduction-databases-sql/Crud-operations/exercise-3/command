@@ -1,0 +1,18 @@
+// 1. Course with prerequisites
+db.courses.insertOne({
+  courseName: "Advanced DSA",
+  prerequisites: ["DSA Basics", "Algorithms"]
+})
+
+// 2. Professor with multiple departments
+db.professors.insertOne({
+  name: "Dr. Sharma",
+  departments: ["CSE", "IT"]
+})
+
+// 3. Grade with student and course references
+db.grades.insertOne({
+  studentId: ObjectId("STUDENT_ID"),
+  courseId: ObjectId("COURSE_ID"),
+  grade: "A"
+})
