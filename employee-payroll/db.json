@@ -1,0 +1,37 @@
+{
+  "employees": [
+    {
+      "name": "Mukund",
+      "gender": "Male",
+      "department": [
+        "Sales"
+      ],
+      "basicSalary": 50000,
+      "startDate": "2026-02-04",
+      "avatar": "/avatars/avatar1.png",
+      "id": "47c2"
+    },
+    {
+      "name": "Rahul",
+      "gender": "Male",
+      "department": [
+        "Finance"
+      ],
+      "basicSalary": 40000,
+      "startDate": "2026-02-01",
+      "avatar": "/avatars/avatar2.png",
+      "id": "e79e"
+    },
+    {
+      "name": "nikhil",
+      "gender": "Female",
+      "department": [
+        "Sales"
+      ],
+      "basicSalary": 680000,
+      "startDate": "2026-02-07",
+      "avatar": "/avatars/avatar4.png",
+      "id": "f35a"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Employee</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Add Employee</h2>
+
+<form id="employeeForm">
+
+  <!-- Name -->
+  <input type="text" id="name" placeholder="Name" required><br><br>
+
+  <!-- Gender -->
+  Gender:
+  <input type="radio" name="gender" value="Male" required> Male
+  <input type="radio" name="gender" value="Female"> Female
+  <br><br>
+
+  <!-- Department -->
+  Department:
+  <input type="checkbox" value="HR"> HR
+  <input type="checkbox" value="Sales"> Sales
+  <input type="checkbox" value="Finance"> Finance
+  <br><br>
+
+  <!-- Salary -->
+  <input type="number" id="salary" placeholder="Basic Salary" required><br><br>
+
+  <!-- Start Date -->
+  <input type="date" id="startDate" required><br><br>
+
+  <!-- Avatar Selection -->
+  <label><b>Choose Avatar:</b></label><br><br>
+
+  <select id="avatar" required>
+    <option value="/avatars/avatar1.png">Avatar 1</option>
+    <option value="/avatars/avatar2.png">Avatar 2</option>
+    <option value="/avatars/avatar3.png">Avatar 3</option>
+    <option value="/avatars/avatar4.png">Avatar 4</option>
+  </select>
+
+  <br><br>
+
+  <!-- Buttons -->
+  <button type="submit">Submit</button>
+  <button type="button" onclick="window.location.href='index.html'">
+    Cancel
+  </button>
+
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>
